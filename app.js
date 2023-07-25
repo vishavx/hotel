@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //route to render email form
 app.get("/", (req, res) => {
-    res.render("hotel");
+    res.render("index");
 });
 
 // //route to send the email
@@ -22,7 +22,7 @@ app.post("/sendEmail", async (req, res) => {
         const { name, email, message } = req.body;
         console.log(name, email, message);
         await sendEmail(email, message);
-        res.render("hotel");
+        res.render("index");
 
     } catch (error) {
         console.error(error);
